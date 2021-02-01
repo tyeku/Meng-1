@@ -69,7 +69,7 @@ def main():
     print("recording")
     frames = []
     #led.on()
-    dots.fill((0, 128, 0))
+    dots.fill((0, 255, 0))
 
     # loop through stream and append audio chunks to frame array
     for ii in range(0,int((samp_rate/chunk)*record_secs)):
