@@ -168,10 +168,10 @@ def main():
 #Initialize LED
 led=LED(17)
 #Press button to run main script
-button = Button(2)
-button.when_pressed = main
-pause()
+#button = Button(2)
+#button.when_pressed = main
+#pause()
 
 #testing without needing to press a button
-#if __name__ == "__main__":
-#    main()
+if __name__ == "__main__":
+    main()
