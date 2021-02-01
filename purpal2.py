@@ -39,12 +39,12 @@ def main():
     dev_index = 1 # device index found by p.get_device_info_by_index(ii)
     wav_output_filename = 'test1.wav' # name of .wav file
 
-    speakvol= 8.5
+    speakvol= 5
     speakpitch= 120
-    speakspeed= 85
+    speakspeed= 90
 
     Response1= "Hi, I'm PurPal, your personal purchasing pal! Let me know what you're thinking of purchasing!"
-    aiy.voice.tts.say(Response1, lang='en-US', volume=8.5, pitch=120, speed=85, device='default')
+    aiy.voice.tts.say(Response1, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
 
     sleep(5)
 
@@ -58,7 +58,7 @@ def main():
 
     print("recording")
     frames = []
-    led.on()
+    #led.on()
 
     # loop through stream and append audio chunks to frame array
     for ii in range(0,int((samp_rate/chunk)*record_secs)):
@@ -66,7 +66,7 @@ def main():
         frames.append(data)
 
     print("finished recording")
-    led.off()
+    #led.off()
 
     # stop the stream, close it, and terminate the pyaudio instantiation
     stream.stop_stream()
@@ -119,7 +119,7 @@ def main():
 
     print("recording")
     frames2 = []
-    led.on()
+    #led.on()
 
     # loop through stream and append audio chunks to frame array
     for ii in range(0,int((samp_rate/chunk)*record_secs)):
@@ -127,7 +127,7 @@ def main():
         frames2.append(data2)
 
     print("finished recording")
-    led.off()
+    #led.off()
 
     # stop the stream, close it, and terminate the pyaudio instantiation
     stream2.stop_stream()
