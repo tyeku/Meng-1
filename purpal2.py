@@ -17,6 +17,16 @@ from time import sleep
 from gpiozero import Button, LED
 from signal import pause
 
+
+import board
+import adafruit_dotstar
+ 
+DOTSTAR_DATA = board.D5
+DOTSTAR_CLOCK = board.D6
+ 
+dots = adafruit_dotstar.DotStar(DOTSTAR_CLOCK, DOTSTAR_DATA, 3, brightness=0.5)
+
+
 def get_hints(language_code):
     if language_code.startswith('en_'):
         return ('testing',
@@ -59,6 +69,7 @@ def main():
     print("recording")
     frames = []
     #led.on()
+    dots.fill((0, 255, 0))
 
     # loop through stream and append audio chunks to frame array
     for ii in range(0,int((samp_rate/chunk)*record_secs)):
@@ -67,6 +78,7 @@ def main():
 
     print("finished recording")
     #led.off()
+    dots.fill((0, 0, 0))
 
     # stop the stream, close it, and terminate the pyaudio instantiation
     stream.stop_stream()
@@ -120,6 +132,7 @@ def main():
     print("recording")
     frames2 = []
     #led.on()
+    dots.fill((0, 255, 0))
 
     # loop through stream and append audio chunks to frame array
     for ii in range(0,int((samp_rate/chunk)*record_secs)):
@@ -128,6 +141,7 @@ def main():
 
     print("finished recording")
     #led.off()
+    dots.fill((0, 0, 0))
 
     # stop the stream, close it, and terminate the pyaudio instantiation
     stream2.stop_stream()
