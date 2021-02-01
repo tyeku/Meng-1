@@ -24,7 +24,7 @@ import adafruit_dotstar
 DOTSTAR_DATA = board.D5
 DOTSTAR_CLOCK = board.D6
  
-dots = adafruit_dotstar.DotStar(DOTSTAR_CLOCK, DOTSTAR_DATA, 3, brightness=0.5)
+dots = adafruit_dotstar.DotStar(DOTSTAR_CLOCK, DOTSTAR_DATA, 3, brightness=0.2)
 
 
 def get_hints(language_code):
