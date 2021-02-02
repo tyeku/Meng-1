@@ -17,15 +17,12 @@ from time import sleep
 from gpiozero import Button, LED
 from signal import pause
 
-
 import board
 import adafruit_dotstar
  
 DOTSTAR_DATA = board.D5
 DOTSTAR_CLOCK = board.D6
- 
 dots = adafruit_dotstar.DotStar(DOTSTAR_CLOCK, DOTSTAR_DATA, 3, brightness=0.2)
-
 
 def get_hints(language_code):
     if language_code.startswith('en_'):
@@ -179,8 +176,6 @@ def main():
         aiy.voice.tts.say(Response5, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
 
 
-#Initialize LED
-#led=LED(17)
 #Press button to run main script
 button = Button(17)
 button.when_pressed = main
