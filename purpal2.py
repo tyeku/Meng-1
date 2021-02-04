@@ -51,7 +51,9 @@ def main():
     speakspeed= 90
 
     Response1= "Hi, I'm PurPal, your personal purchasing pal! Let me know what you're thinking of purchasing!"
+    dots.fill((255, 0, 0))
     aiy.voice.tts.say(Response1, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
+    dots.fill((0, 0, 0))
 
     sleep(5)
 
@@ -65,7 +67,6 @@ def main():
 
     print("recording")
     frames = []
-    #led.on()
     dots.fill((0, 255, 0))
 
     # loop through stream and append audio chunks to frame array
@@ -74,7 +75,6 @@ def main():
         frames.append(data)
 
     print("finished recording")
-    #led.off()
     dots.fill((0, 0, 0))
 
     # stop the stream, close it, and terminate the pyaudio instantiation
@@ -113,8 +113,9 @@ def main():
 
     #Tts --------------------------------------------------------------------------
     Response2= 'Is it for you, or someone else?'
+    dots.fill((255, 0, 0))
     aiy.voice.tts.say(Response2, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
-
+    dots.fill((0, 0, 0))
     sleep(5)
 
     #Record answer to 2nd question -------------------------------------------------
@@ -128,7 +129,6 @@ def main():
 
     print("recording")
     frames2 = []
-    #led.on()
     dots.fill((0, 255, 0))
 
     # loop through stream and append audio chunks to frame array
@@ -137,7 +137,6 @@ def main():
         frames2.append(data2)
 
     print("finished recording")
-    #led.off()
     dots.fill((0, 0, 0))
 
     # stop the stream, close it, and terminate the pyaudio instantiation
@@ -150,7 +149,9 @@ def main():
     text2=client.recognize_bytes(newdata2, language_code='en-US', hint_phrases=hints)
     if text2==None:
         Restart="Sorry, I didn't get that. Let's start over!"
+        dots.fill((255, 0, 0))
         aiy.voice.tts.say(Restart, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
+        dots.fill((0, 0, 0))
         main()
     logging.info('You said: "%s"' % text2)
 
@@ -165,15 +166,21 @@ def main():
     #Generic responses
     elif 'some' in text2:
         Response3= 'Think about what you want to say when you offer it'
+        dots.fill((255, 0, 0))
         aiy.voice.tts.say(Response3, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
+        dots.fill((0, 0, 0))
         print(Response3)
     elif 'me' in text2:
         Response4= 'Think about how this will positively contribute to your life'
+        dots.fill((255, 0, 0))
         aiy.voice.tts.say(Response4, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
+        dots.fill((0, 0, 0))
         print (Response4)
     else: #Default to someone else answer
         Response5= 'Think about what you want to say when you offer it'
+        dots.fill((255, 0, 0))
         aiy.voice.tts.say(Response5, lang='en-US', volume=speakvol, pitch=speakpitch, speed=speakspeed, device='default')
+        dots.fill((0, 0, 0))
 
 
 #Press button to run main script
